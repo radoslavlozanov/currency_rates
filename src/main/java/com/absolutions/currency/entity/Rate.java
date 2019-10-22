@@ -19,7 +19,18 @@ public class Rate extends BaseEntity {
     private Currency base;
     private BigDecimal rate;
     private Date date;
-    private Date timestamp;
+    private Long timestamp;
+
+    public Rate() {
+    }
+
+    public Rate(Currency currency, Currency base, BigDecimal rate, Date date, Long timestamp) {
+        this.currency = currency;
+        this.base = base;
+        this.rate = rate;
+        this.date = date;
+        this.timestamp = timestamp;
+    }
 
     @JoinColumn(name= "CURRENCY_ID", nullable = false)
     @ManyToOne(targetEntity = Currency.class)
@@ -64,12 +75,11 @@ public class Rate extends BaseEntity {
 
     @Basic
     @Column(name = "RATE_TIMESTAMP", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 

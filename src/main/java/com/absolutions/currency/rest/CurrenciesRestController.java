@@ -16,7 +16,7 @@ import javax.annotation.security.RolesAllowed;
 @RequestMapping("/")
 public class CurrenciesRestController {
     @Value("${fixer.access.key}")
-    String accessKey;
+    private String accessKey;
 
     @Autowired
     private FixerClient fixerClient;

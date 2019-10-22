@@ -5,9 +5,9 @@
 
   2. Да се изгради Currency Rest API с методи:<br>
    /currencies  -  return list with all currencies<br>
-   /rates/historic/{base} - return all exchange rates from 1999 with {base} <br>
-   /rates/historic/{base}/{date}  -   return all exchange rates from {date} with {base}<br>
-   /rates/latest/{base} -  return all exchange rates for current day with {base}<br>
+   /rates/historic/{base} - return all exchange rates from 1999 with {base} - **Can't be done due to api restrictions**<br> 
+   /rates/historic/{base}/{date}  -   return all exchange rates from {date} with {base} - **Can't be done due to api restrictions** <br>
+   /rates/latest/{base} -  return all exchange rates for current day with {base}- **Currenctly works with EUR as code only. Rest are restricted** <br>
    /report/{currency}/{date} -  return all rates for {currency} with series per day with base = EUR<br>
    <br>
    Насоки:
@@ -25,4 +25,6 @@ docker-compose -f docker-compose.yml up -d mysql
 ## Start app
 Use spring boot maven plugin. Execute following command:<br>
 mvn spring-boot:run
+# Important
+Rates won't be saved unless first /currencies is called.
  
